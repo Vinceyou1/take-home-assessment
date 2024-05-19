@@ -46,7 +46,7 @@ const ContactGrid = ({editContact}) => {
 
       return () => unsubscribe();
     }
-  }, [user[0], db, storage]);
+  }, [user, db, storage]);
 
   if (loading) {
     return <p>Loading contacts...</p>;

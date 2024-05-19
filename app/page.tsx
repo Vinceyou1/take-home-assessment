@@ -13,7 +13,7 @@ export default function Home() {
   const [popupOpen, setPopupOpen] = React.useState(false);
   // is the contact new or are we editing an old one
   const [isNew, setIsNew] = React.useState(false);
-  const [selectedContactId, setSelectedContactId] = React.useState<string | null>(null);
+  const [selectedContactId, setSelectedContactId] = React.useState<string>("");
 
   const editContact = (uuid : string) => {
     setSelectedContactId(uuid);

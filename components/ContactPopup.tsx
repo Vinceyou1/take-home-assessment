@@ -51,7 +51,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, isNew, onClose, con
       };
       fetchContact();
     }
-  }, [isNew, contactId, user, db, storage]);
+  }, [isNew, contactId, user, db, storage, isOpen]);
   if (!isOpen) return null;
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
