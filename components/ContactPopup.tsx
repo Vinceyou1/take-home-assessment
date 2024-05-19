@@ -14,8 +14,6 @@ interface ContactPopupProps {
 }
 
 const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, isNew, onClose, contactId }) => {
-  if (!isOpen) return null;
-
   const [image, setImage] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -30,6 +28,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, isNew, onClose, con
   );
 
   useEffect(() => {
+    if(!isOpen) return;
     if (!isNew && contactId && user[0] && db && storage) {
       const fetchContact = async () => {
         const docRef = doc(db, 'users', user[0].uid, 'contacts', contactId);
@@ -53,6 +52,7 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, isNew, onClose, con
       fetchContact();
     }
   }, [isNew, contactId, user, db, storage]);
+  if (!isOpen) return null;
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
