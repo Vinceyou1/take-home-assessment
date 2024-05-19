@@ -3,7 +3,7 @@
 import React from "react";
 import { UserContext } from "@/components/context/UserContext";
 import SigninPopup from "@/components/SigninPopup";
-import { signOut } from "@/components/utility/auth"
+import { signOut } from "@/components/utility/Auth"
 import ContactPopup from "@/components/ContactPopup";
 import ContactGrid from "@/components/ContactGrid";
 

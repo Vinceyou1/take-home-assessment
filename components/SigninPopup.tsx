@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { GoogleAuthProvider } from 'firebase/auth/cordova';
-import { signInWithGoogle } from './utility/auth';
+import { signInWithGoogle } from './utility/Auth';
 
 
 const SigninPopup = ({isOpen}) => {
