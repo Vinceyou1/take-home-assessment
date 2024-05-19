@@ -24,6 +24,7 @@ const ContactGrid: React.FC<ContactGridProps> = ({ editContact }) => {
     if (user[0] && db && storage) {
       const contactsRef = collection(db, 'users', user[0].uid, 'contacts');
       const unsubscribe = onSnapshot(contactsRef, async (snapshot) => {
+        if(!user[0]) return;
         var contactsData: ContactInfo[] = [];
         for (const doc of snapshot.docs) {
           const data = doc.data() as DocumentData;

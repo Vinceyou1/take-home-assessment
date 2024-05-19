@@ -29,8 +29,9 @@ const ContactPopup: React.FC<ContactPopupProps> = ({ isOpen, isNew, onClose, con
 
   useEffect(() => {
     if(!isOpen) return;
-    if (!isNew && contactId && user[0] && db && storage) {
+    if (!isNew && user && contactId && db && storage) {
       const fetchContact = async () => {
+        if(!user[0]) return;
         const docRef = doc(db, 'users', user[0].uid, 'contacts', contactId);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {

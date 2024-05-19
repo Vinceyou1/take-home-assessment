@@ -3,11 +3,12 @@ import { useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
 import React from "react";
 import { AuthContext } from "./AuthContext";
+import ProviderProps from "./ProviderProps";
 
 // User object, then if still loading
 export const UserContext = React.createContext<[User | null, boolean]>([null, true]);
 
-export default function UserProvider({children}){
+export const UserProvider : React.FC<ProviderProps> = ({children}) => {
   const auth = React.useContext(AuthContext);
 	const [user, setUser] = useState(auth? auth.currentUser : null);
   const [loading, setLoading] = useState(true);
