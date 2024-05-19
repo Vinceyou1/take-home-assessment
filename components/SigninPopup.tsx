@@ -4,8 +4,11 @@ import React from 'react';
 import { GoogleAuthProvider } from 'firebase/auth/cordova';
 import { signInWithGoogle } from './utility/Auth';
 
+interface SigninPopupProps {
+  isOpen: boolean;
+}
 
-const SigninPopup = ({isOpen}) => {
+const SigninPopup: React.FC<SigninPopupProps> = ({ isOpen }) => {
   if (!isOpen) return null;
   const provider = new GoogleAuthProvider();
   const signIn = async () => {

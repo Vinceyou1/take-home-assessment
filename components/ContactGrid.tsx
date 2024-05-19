@@ -7,7 +7,12 @@ import { StorageContext } from './context/StorageContext';
 import ContactInfo from './utility/ContactInfo';
 import Image from 'next/image'
 
-const ContactGrid = ({editContact}) => {
+
+interface ContactGridProps {
+  editContact: (contactId: string) => void;
+}
+
+const ContactGrid: React.FC<ContactGridProps> = ({ editContact }) => {
   const [contacts, setContacts] = useState<ContactInfo[]>([]);
   const [loading, setLoading] = useState(true);
   const db = React.useContext(FirestoreContext);
